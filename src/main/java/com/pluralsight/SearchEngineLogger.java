@@ -11,7 +11,7 @@ public class SearchEngineLogger {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss");
         String formattedDate = today.format(fmt);
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Enter file name for testing: ");
+        System.out.println("Enter file name for testing:  ");
         String logsFile = myScanner.nextLine();
         try{
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(logsFile));
