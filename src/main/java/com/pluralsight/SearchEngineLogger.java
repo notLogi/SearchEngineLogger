@@ -7,11 +7,12 @@ import java.io.*;
 
 public class SearchEngineLogger {
     public static void main(String[] args) {
-        String logsFile = "logs.txt";
         LocalDateTime today = LocalDateTime.now();
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss");
         String formattedDate = today.format(fmt);
         Scanner myScanner = new Scanner(System.in);
+        System.out.println("Enter file name for testing: ");
+        String logsFile = myScanner.nextLine();
         try{
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(logsFile));
             bufferedWriter.write(formattedDate + " launch\n");
@@ -23,7 +24,7 @@ public class SearchEngineLogger {
                     isDone = true;
                     bufferedWriter.write(formattedDate + " exit\n");
                 }
-                bufferedWriter.write(formattedDate + " search: " + input + "\n");
+                else bufferedWriter.write(formattedDate + " search: " + input + "\n");
             }
             bufferedWriter.close();
         }
