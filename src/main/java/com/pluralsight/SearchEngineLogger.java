@@ -8,18 +8,19 @@ import java.io.*;
 public class SearchEngineLogger {
     public static void main(String[] args) {
         LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss");
-        String formattedDate = today.format(fmt);
         Scanner myScanner = new Scanner(System.in);
-        logActions(myScanner, formattedDate);
+        logActions(myScanner);
         myScanner.close();
     }
-    public static void logActions(Scanner myScanner, String formattedDate){
+    public static void logActions(Scanner myScanner){
         try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("logs.txt"));
-            bufferedWriter.write(formattedDate + " launch\n");
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss");
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("logs.txt "));
+            bufferedWriter.write(LocalDateTime.now().format(fmt) + " launch\n");
             boolean isDone = false;
             while(!isDone){
+                LocalDateTime today = LocalDateTime.now();
+                String formattedDate = today.format(fmt);
                 System.out.println("Enter a search term (X to exit)");
                 String input = myScanner.nextLine();
                 if(input.equalsIgnoreCase("X")) {
