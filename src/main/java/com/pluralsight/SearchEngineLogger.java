@@ -14,7 +14,7 @@ public class SearchEngineLogger {
         System.out.println("Enter file name for testing:  ");
         String logsFile = myScanner.nextLine();
         try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(logsFile));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(logsFile, true));
             bufferedWriter.write(formattedDate + " launch\n");
             boolean isDone = false;
             while(!isDone){
