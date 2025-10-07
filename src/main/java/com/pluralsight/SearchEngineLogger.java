@@ -11,10 +11,12 @@ public class SearchEngineLogger {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss");
         String formattedDate = today.format(fmt);
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Enter file name for testing:  ");
-        String logsFile = myScanner.nextLine();
+        logActions(myScanner, formattedDate);
+        myScanner.close();
+    }
+    public static void logActions(Scanner myScanner, String formattedDate){
         try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(logsFile, true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("logs.txt"));
             bufferedWriter.write(formattedDate + " launch\n");
             boolean isDone = false;
             while(!isDone){
@@ -31,7 +33,5 @@ public class SearchEngineLogger {
         catch(IOException ex){
             System.err.println("Error has occurred.");
         }
-        myScanner.close();
-
     }
 }
